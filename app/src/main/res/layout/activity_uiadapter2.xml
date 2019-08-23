@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.hxj.enjoyandroid.ui.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UIAdapter2Activity">
+
+    <com.hxj.enjoyandroid.ui.PercentRelativeLayout
+        app:layout_widthPercent="0.8"
+        app:layout_heightPercent="0.8"
+        android:background="#ff22ff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:text="百分比适配"
+            app:layout_widthPercent="1.0"
+            app:layout_heightPercent="1.0"
+            app:layout_marginTopPercent="0.2"
+            app:layout_marginRightPercent="0.2"
+            app:layout_marginLeftPercent="0.2"
+            app:layout_marginBottomPercent="0.2"
+            android:background="@color/colorAccent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </com.hxj.enjoyandroid.ui.PercentRelativeLayout>
+
+</com.hxj.enjoyandroid.ui.PercentRelativeLayout>
