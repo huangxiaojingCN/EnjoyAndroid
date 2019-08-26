@@ -17,6 +17,6 @@ public class UIAdapter2Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_uiadapter2_1);
+        setContentView(R.layout.activity_uiadapter2);
     }
 }

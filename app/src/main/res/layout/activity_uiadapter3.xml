@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".UIAdapter3Activity">
+
+    <TextView
+        android:textColor="#ffffff"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="1"
+        android:layout_width="48dp"
+        android:layout_height="48dp" />
+
+    <TextView
+        android:textColor="#ffffff"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="2"
+        android:layout_width="48dp"
+        android:layout_height="48dp" />
+
+    <TextView
+        android:textColor="#ffffff"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="3"
+        android:layout_width="48dp"
+        android:layout_height="48dp" />
+
+    <TextView
+        android:textColor="#ffffff"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="4"
+        android:layout_width="48dp"
+        android:layout_height="48dp" />
+
+    <TextView
+        android:textColor="#ffffff"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="5"
+        android:layout_width="48dp"
+        android:layout_height="48dp" />
+
+    <TextView
+        android:textColor="#ffffff"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="6"
+        android:layout_width="48dp"
+        android:layout_height="48dp" />
+
+    <TextView
+        android:textColor="#ffffff"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="7"
+        android:layout_width="48dp"
+        android:layout_height="48dp" />
+
+    <TextView
+        android:textColor="#ffffff"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="8"
+        android:layout_width="48dp"
+        android:layout_height="48dp" />
+
+    <TextView
+        android:textColor="#ffffff"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="9"
+        android:layout_width="48dp"
+        android:layout_height="48dp" />
+
+    <TextView
+        android:textColor="#ffffff"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="10"
+        android:layout_width="48dp"
+        android:layout_height="48dp" />
+
+</LinearLayout>

@@ -2,6 +2,7 @@
 <resources>
 
     <declare-styleable name="PercentRelativeLayout">
+        <!-- -->
         <attr name="layout_widthPercent" format="float"/>
         <attr name="layout_heightPercent" format="float"/>
         <attr name="layout_marginLeftPercent" format="float"/>
