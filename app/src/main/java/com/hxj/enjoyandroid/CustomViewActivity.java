@@ -13,6 +13,7 @@ import com.hxj.enjoyandroid.fragments.CanvasApiFragment;
 import com.hxj.enjoyandroid.fragments.CanvasPathFragment;
 import com.hxj.enjoyandroid.fragments.ComposeViewFragment;
 import com.hxj.enjoyandroid.fragments.EventViewFragment;
+import com.hxj.enjoyandroid.fragments.GesutureOneFragment;
 import com.hxj.enjoyandroid.fragments.PathApiFragment;
 import com.hxj.enjoyandroid.fragments.ScreenCoordinateFragment;
 import com.hxj.enjoyandroid.fragments.SelfDrawViewFragment;
@@ -34,6 +35,7 @@ public class CustomViewActivity extends AppCompatActivity {
             "坐标系",
             "Canvas",
             "path",
+            "手势1",
             "自绘",
             "组合",
             "事件"
@@ -87,6 +89,9 @@ public class CustomViewActivity extends AppCompatActivity {
 
         /*PathApiFragment pathApiFragment = new PathApiFragment();
         fragments.add(pathApiFragment);*/
+
+        GesutureOneFragment gesutureOneFragment = new GesutureOneFragment();
+        fragments.add(gesutureOneFragment);
 
         SelfDrawViewFragment selfDrawViewFragment = new SelfDrawViewFragment();
         fragments.add(selfDrawViewFragment);
