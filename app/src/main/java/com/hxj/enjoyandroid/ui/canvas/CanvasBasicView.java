@@ -1,6 +1,8 @@
 package com.hxj.enjoyandroid.ui.canvas;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -9,10 +11,14 @@ import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.hxj.enjoyandroid.R;
+
 /**
  *  基础的 Canvas API, 包含点，线段，圆，矩形，椭圆，颜色填充，画笔设置大小， 文字
  */
 public class CanvasBasicView extends View {
+
+    private Bitmap mGrilBitmap;
 
     private Paint mPaint;
 
@@ -26,6 +32,8 @@ public class CanvasBasicView extends View {
         super(context, attrs);
 
         initPaint();
+        
+        mGrilBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.beauty);
     }
 
     private void initPaint() {
@@ -106,5 +114,8 @@ public class CanvasBasicView extends View {
                 60,
                 true,
                 mPaint);
+
+        // 绘制图片.
+        canvas.drawBitmap(mGrilBitmap, 300, 50, null);
     }
 }
