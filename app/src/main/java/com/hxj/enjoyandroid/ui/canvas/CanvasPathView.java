@@ -77,6 +77,13 @@ public class CanvasPathView extends View {
         mPath.moveTo(400, 500);
         mPath.cubicTo(500, 300, 600, 700, 700, 350);
 
+        mPath.moveTo(100, 900);
+        canvas.drawLine(100, 900, 200, 1100, mPaint);
+        // 这里值得注意的就是最后一个参数 forceMoveTo: 如果为 false 表示将当前的起点和 path 最后一个点点击起来
+        // 可以看到图形变化的过程.
+        mPath.arcTo(100, 1100,300, 1200, 0, 60, false);
+
+
         // 绘制路径 mPath
         canvas.drawPath(mPath, mPaint);
     }
