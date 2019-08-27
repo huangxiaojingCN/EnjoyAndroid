@@ -4,6 +4,11 @@
     android:layout_height="match_parent">
 
    <com.hxj.enjoyandroid.ui.ScreenCoordinateView
+       android:visibility="gone"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent" />
+
+   <com.hxj.enjoyandroid.ui.MotionEventView
        android:layout_width="match_parent"
        android:layout_height="match_parent" />
 
