@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.hxj.enjoyandroid.fragments.CanvasApiFragment;
+import com.hxj.enjoyandroid.fragments.CanvasPathFragment;
 import com.hxj.enjoyandroid.fragments.ComposeViewFragment;
 import com.hxj.enjoyandroid.fragments.EventViewFragment;
 import com.hxj.enjoyandroid.fragments.PathApiFragment;
@@ -31,7 +32,7 @@ public class CustomViewActivity extends AppCompatActivity {
 
     private String[] titles = new String[]{
             "坐标系",
-            "canvas",
+            "Canvas",
             "path",
             "自绘",
             "组合",
@@ -81,8 +82,11 @@ public class CustomViewActivity extends AppCompatActivity {
         CanvasApiFragment canvasApiFragment = new CanvasApiFragment();
         fragments.add(canvasApiFragment);
 
-        PathApiFragment pathApiFragment = new PathApiFragment();
-        fragments.add(pathApiFragment);
+        CanvasPathFragment canvasPathFragment = new CanvasPathFragment();
+        fragments.add(canvasPathFragment);
+
+        /*PathApiFragment pathApiFragment = new PathApiFragment();
+        fragments.add(pathApiFragment);*/
 
         SelfDrawViewFragment selfDrawViewFragment = new SelfDrawViewFragment();
         fragments.add(selfDrawViewFragment);

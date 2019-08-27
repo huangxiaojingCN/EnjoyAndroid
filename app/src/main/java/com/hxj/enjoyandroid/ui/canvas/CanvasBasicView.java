@@ -32,7 +32,7 @@ public class CanvasBasicView extends View {
         super(context, attrs);
 
         initPaint();
-        
+
         mGrilBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.beauty);
     }
 
