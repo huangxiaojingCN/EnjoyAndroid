@@ -16,7 +16,7 @@ import java.util.List;
 /**
  *  自定义view基础学习，绘制直方图。
  */
-public class HistogramView<T> extends View {
+public class HistogramView<T extends HistogramBean> extends View {
 
     /**
      *  直方图之间的间隙
@@ -53,13 +53,7 @@ public class HistogramView<T> extends View {
     public HistogramView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        initData();
         initPaint();
-    }
-
-    private void initData() {
-
-
     }
 
     private void initPaint() {
@@ -154,6 +148,30 @@ public class HistogramView<T> extends View {
         // 列的可用控件
         int avaiableColumnSpace = avialableSpace / columns;
 
+        // 计算最高数值与坐标轴实际高度的比值，
+        if (datas.size() > 0) {
+            int lastX = 0;
+            for (int i = 0; i < columns; i++) {
+                HistogramBean bean =  datas.get(i);
+                int height = bean.height;
+                int max = bean.max;
+                // 按着最大值的比列进行缩放.
+                int relalHeight = mYCoordinateHeight * height / max;
+
+                int left = startX + space + lastX;
+                if (lastX > 0) {
+                    left = lastX + space;
+                }
+                int top = (yCoordinateEndY + mYCoordinateHeight - relalHeight);
+                int right = (left + avaiableColumnSpace);
+                int bottom = startY;
+
+                canvas.drawRect(left, top, right, bottom, mPaint);
+                lastX = right;
+            }
+
+        }
+
         /*if (datas.size() > 0) {
             for (int i = 1; i <= columns; i++) {
 
@@ -166,7 +184,7 @@ public class HistogramView<T> extends View {
             }
         }*/
 
-        int lastX = 0;
+        /*int lastX = 0;
         for (int i = 1; i <= columns; i++) {
             int left = startX + space + lastX;
             if (lastX > 0) {
@@ -178,7 +196,7 @@ public class HistogramView<T> extends View {
 
             canvas.drawRect(left, top, right, bottom, mPaint);
             lastX = right;
-        }
+        }*/
     }
 
     public void addData(List<T> datas) {
@@ -187,7 +205,7 @@ public class HistogramView<T> extends View {
         if (datas.size() > 0) {
             totoalSpaces = datas.size() + 1;
             columns = totoalSpaces - 1;
-            initPaint();
+            requestLayout();
         }
     }
 }
