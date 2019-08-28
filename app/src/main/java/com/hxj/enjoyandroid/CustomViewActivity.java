@@ -14,6 +14,7 @@ import com.hxj.enjoyandroid.fragments.CanvasPathFragment;
 import com.hxj.enjoyandroid.fragments.ComposeViewFragment;
 import com.hxj.enjoyandroid.fragments.EventViewFragment;
 import com.hxj.enjoyandroid.fragments.GesutureOneFragment;
+import com.hxj.enjoyandroid.fragments.HistogramFragment;
 import com.hxj.enjoyandroid.fragments.PathApiFragment;
 import com.hxj.enjoyandroid.fragments.ScreenCoordinateFragment;
 import com.hxj.enjoyandroid.fragments.SelfDrawViewFragment;
@@ -37,6 +38,7 @@ public class CustomViewActivity extends AppCompatActivity {
             "path",
             "手势1",
             "自绘",
+            "直方图",
             "组合",
             "事件"
     };
@@ -95,6 +97,9 @@ public class CustomViewActivity extends AppCompatActivity {
 
         SelfDrawViewFragment selfDrawViewFragment = new SelfDrawViewFragment();
         fragments.add(selfDrawViewFragment);
+
+        HistogramFragment histogramFragment = new HistogramFragment();
+        fragments.add(histogramFragment);
 
         ComposeViewFragment composeViewFragment = new ComposeViewFragment();
         fragments.add(composeViewFragment);
