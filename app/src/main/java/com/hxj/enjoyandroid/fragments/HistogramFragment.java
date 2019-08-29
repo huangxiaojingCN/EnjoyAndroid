@@ -30,18 +30,25 @@ public class HistogramFragment extends BaseFragment {
         bean.height = 30;
         bean.max = 100;
         bean.color = "#DD7532";
+        bean.columnName = "小明";
+
         HistogramBean bean1 = new HistogramBean();
         bean1.height = 80;
         bean1.max = 100;
         bean1.color = "#DB4B4C";
+        bean1.columnName = "张三";
+
         HistogramBean bean2 = new HistogramBean();
         bean2.height = 50;
         bean2.max = 100;
         bean2.color = "#DBFFAF";
+        bean2.columnName = "李四";
+
         HistogramBean bean3 = new HistogramBean();
-        bean3.height = 90;
+        bean3.height = 100;
         bean3.max = 100;
         bean3.color = "#1375CD";
+        bean3.columnName = "王二";
 
         datas.add(bean);
         datas.add(bean1);

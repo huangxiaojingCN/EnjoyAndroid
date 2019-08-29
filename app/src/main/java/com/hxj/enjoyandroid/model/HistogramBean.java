@@ -7,4 +7,6 @@ public class HistogramBean {
     public String color;
 
     public int max;
+
+    public String columnName = "无";
 }

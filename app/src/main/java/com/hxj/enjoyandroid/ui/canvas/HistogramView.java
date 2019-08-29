@@ -5,6 +5,8 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.graphics.Rect;
+import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -50,6 +52,8 @@ public class HistogramView<T extends HistogramBean> extends View {
 
     private Matrix mMatrix;
 
+    private TextPaint mTextPaint;
+
     public HistogramView(Context context) {
         this(context, null);
     }
@@ -72,8 +76,8 @@ public class HistogramView<T extends HistogramBean> extends View {
         mCoordinatePaint.setColor(Color.BLACK);
         mCoordinatePaint.setStrokeWidth(3);
 
-        // 用以图形变换操作.
-        mMatrix = new Matrix();
+        mTextPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG | Paint.DITHER_FLAG);
+        mTextPaint.setTextSize(30);
     }
 
 
@@ -91,8 +95,6 @@ public class HistogramView<T extends HistogramBean> extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        // 情况变化操作
-        mMatrix.reset();
 
         // 绘制 x 轴坐标.
         int startX = (mWidth - mXCoordinateWidth) / 2;
@@ -143,11 +145,14 @@ public class HistogramView<T extends HistogramBean> extends View {
         // 计算最高数值与坐标轴实际高度的比值，
         if (datas.size() > 0) {
             int lastX = 0;
+            int xScaleStep = 0;
             for (int i = 0; i < columns; i++) {
                 HistogramBean bean =  datas.get(i);
                 int height = bean.height;
                 int max = bean.max;
                 String color = bean.color;
+                String columnName = bean.columnName;
+
                 if (max == 0 || max < height) {
                     throw new IllegalStateException("最大值不能为0");
                 }
@@ -167,7 +172,65 @@ public class HistogramView<T extends HistogramBean> extends View {
                 }
                 canvas.drawRect(left, top, right, bottom, mPaint);
                 lastX = right;
+
+
+                // 绘制 x 轴刻度.
+                int xScalex = 0;
+                if (xScaleStep > 0) {
+                    xScalex = xScaleStep;
+                } else {
+                    xScalex = startX + space + avaiableColumnSpace / 2;
+                }
+                int xScaley = startY;
+
+                int xScaleEndx = xScalex;
+                int xScaleEndy = startY + 10;
+
+                mPaint.setColor(Color.RED);
+                canvas.drawLine(xScalex, xScaley, xScaleEndx, xScaleEndy, mPaint);
+
+                xScaleStep = xScalex + 2 * avaiableColumnSpace / 2 + space;
+
+                // 绘制 x 轴刻度值.
+                Rect columnNameRect = new Rect();
+                mTextPaint.getTextBounds(columnName, 0, columnName.length(), columnNameRect);
+                canvas.drawText(columnName,
+                        xScalex - columnNameRect.width() / 2,
+                        xScaleEndy + columnNameRect.height(),
+                        mTextPaint);
+
+                // 绘制 y 轴刻度.
+                // 根据列的数量进行刻度实现.
+                int yScaleValue = (i + 1) * max / columns * mYCoordinateHeight / max;
+                Log.i(TAG, "onDraw yScaleValue: " + yScaleValue);
+                int yScaley = yCoordinateEndY + mYCoordinateHeight - yScaleValue;
+                int yScalex = yCoordinateEndX;
+
+                int yScaleEndx = yCoordinateEndX - 10;
+                int yScaleEndy = yScaley;
+
+                canvas.drawLine(yScalex, yScaley, yScaleEndx, yScaleEndy, mPaint);
+
+                // 绘制 y 轴刻度值.
+                String yScaleValueStr = (i + 1) * max / columns + "";
+                Log.i(TAG, "onDraw yScaleValueStr: " + yScaleValueStr);
+                Rect textRect = new Rect();
+                mTextPaint.getTextBounds(yScaleValueStr, 0, yScaleValueStr.length(), textRect);
+                canvas.drawText(yScaleValueStr, startX - textRect.width() - 20, yScaley + textRect.height() / 2, mTextPaint);
             }
+            // 补画 y 轴 0 刻度
+            int yScale0x = yCoordinateEndX;
+            int yScale0y = mYCoordinateHeight + yCoordinateEndY;
+
+            int yScaleEnd0x = yCoordinateEndX - 10;
+            int yScaleEnd0y = yScale0y;
+            canvas.drawLine(yScale0x, yScale0y, yScaleEnd0x, yScaleEnd0y, mPaint);
+            // 绘制刻度值.
+            String yScaleValueStr = "0";
+            Rect textRect = new Rect();
+            mTextPaint.getTextBounds(yScaleValueStr, 0, yScaleValueStr.length(), textRect);
+            canvas.drawText(yScaleValueStr, startX - textRect.width() - 20, yScale0y + textRect.height() / 2, mTextPaint);
+
         }
     }
 
