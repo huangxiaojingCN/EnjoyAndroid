@@ -4,8 +4,11 @@ import android.view.View;
 
 import com.hxj.enjoyandroid.R;
 import com.hxj.enjoyandroid.model.HistogramBean;
+import com.hxj.enjoyandroid.model.PieBean;
 import com.hxj.enjoyandroid.ui.canvas.HistogramView;
+import com.hxj.enjoyandroid.ui.canvas.PieView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,9 +16,13 @@ public class HistogramFragment extends BaseFragment {
 
     private HistogramView<HistogramBean> mHistogramView;
 
+    private PieView<PieBean> mPieView;
+
     @Override
     protected void initView(View view) {
        mHistogramView = view.findViewById(R.id.histogramView);
+
+       mPieView = view.findViewById(R.id.pieView);
     }
 
     @Override
@@ -88,5 +95,44 @@ public class HistogramFragment extends BaseFragment {
         datas.add(bean7);
 
         mHistogramView.addData(datas);
+
+
+        List<PieBean> pieDatas = new ArrayList<>();
+        PieBean pie1 = new PieBean();
+        pie1.color = "#18B44C";
+        pie1.item = "事例1";
+        pie1.max = 100;
+        pie1.value = 30;
+        pieDatas.add(pie1);
+
+        PieBean pie2 = new PieBean();
+        pie2.color = "#18294C";
+        pie2.item = "事例2";
+        pie2.max = 100;
+        pie2.value = 20;
+        pieDatas.add(pie2);
+
+        PieBean pie3 = new PieBean();
+        pie3.color = "#DB4B4C";
+        pie3.item = "事例2";
+        pie3.max = 100;
+        pie3.value = 10;
+        pieDatas.add(pie3);
+
+        PieBean pie4 = new PieBean();
+        pie4.color = "#1375CD";
+        pie4.item = "事例2";
+        pie4.max = 100;
+        pie4.value = 15;
+        pieDatas.add(pie4);
+
+        PieBean pie5 = new PieBean();
+        pie5.color = "#DD7532";
+        pie5.item = "事例2";
+        pie5.max = 100;
+        pie5.value = 25;
+        pieDatas.add(pie5);
+
+        mPieView.addPies(pieDatas);
     }
 }
