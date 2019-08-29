@@ -48,7 +48,7 @@ public class HistogramFragment extends BaseFragment {
         bean3.height = 100;
         bean3.max = 100;
         bean3.color = "#1375CD";
-        bean3.columnName = "王二";
+        bean3.columnName = "三毛";
 
 
         HistogramBean bean4 = new HistogramBean();
