@@ -1,5 +1,7 @@
 package com.hxj.enjoyandroid.fragments;
 
+import android.view.View;
+
 import com.hxj.enjoyandroid.R;
 
 public class EventViewFragment extends BaseFragment {
@@ -11,6 +13,11 @@ public class EventViewFragment extends BaseFragment {
 
     @Override
     void initData() {
+
+    }
+
+    @Override
+    protected void initView(View view) {
 
     }
 }

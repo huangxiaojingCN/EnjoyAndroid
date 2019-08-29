@@ -5,7 +5,9 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import com.hxj.enjoyandroid.model.HistogramBean;
@@ -17,6 +19,8 @@ import java.util.List;
  *  自定义view基础学习，绘制直方图。
  */
 public class HistogramView<T extends HistogramBean> extends View {
+
+    public static final String TAG = "HistogramView";
 
     /**
      *  直方图之间的间隙
@@ -87,18 +91,6 @@ public class HistogramView<T extends HistogramBean> extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
-        /*if (datas.size() == 0) {
-            return;
-        }
-
-
-
-        // 得到直方图列可绘制区域
-        int avialableSpace = mXCoordinateWidth - totoalSpaces * space;
-        // 列的可用控件
-        int avaiableColumnSpace = avialableSpace / columns;*/
-
         // 情况变化操作
         mMatrix.reset();
 
@@ -155,6 +147,10 @@ public class HistogramView<T extends HistogramBean> extends View {
                 HistogramBean bean =  datas.get(i);
                 int height = bean.height;
                 int max = bean.max;
+                String color = bean.color;
+                if (max == 0 || max < height) {
+                    throw new IllegalStateException("最大值不能为0");
+                }
                 // 按着最大值的比列进行缩放.
                 int relalHeight = mYCoordinateHeight * height / max;
 
@@ -166,41 +162,16 @@ public class HistogramView<T extends HistogramBean> extends View {
                 int right = (left + avaiableColumnSpace);
                 int bottom = startY;
 
+                if (!TextUtils.isEmpty(color)) {
+                    mPaint.setColor(Color.parseColor(color));
+                }
                 canvas.drawRect(left, top, right, bottom, mPaint);
                 lastX = right;
             }
-
         }
-
-        /*if (datas.size() > 0) {
-            for (int i = 1; i <= columns; i++) {
-
-                int left = (startX + space) * i;
-                int top = (yCoordinateEndY + 100);
-                int right = (left + avaiableColumnSpace);
-                int bottom = startY;
-
-                canvas.drawRect(left, top, right, bottom, mPaint);
-            }
-        }*/
-
-        /*int lastX = 0;
-        for (int i = 1; i <= columns; i++) {
-            int left = startX + space + lastX;
-            if (lastX > 0) {
-                left = lastX + space;
-            }
-            int top = (yCoordinateEndY + 100 / i + 100);
-            int right = (left + avaiableColumnSpace);
-            int bottom = startY;
-
-            canvas.drawRect(left, top, right, bottom, mPaint);
-            lastX = right;
-        }*/
     }
 
     public void addData(List<T> datas) {
-        // TODO 做数据比较.
         this.datas = datas;
         if (datas.size() > 0) {
             totoalSpaces = datas.size() + 1;

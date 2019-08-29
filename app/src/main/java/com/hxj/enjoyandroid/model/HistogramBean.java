@@ -4,7 +4,7 @@ public class HistogramBean {
 
     public int height;
 
-    public int color;
+    public String color;
 
     public int max;
 }
