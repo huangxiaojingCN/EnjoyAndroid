@@ -47,7 +47,11 @@ public class HistogramView<T extends HistogramBean> extends View {
 
     private int totoalSpaces = 6;
 
+    private int DEFAULT_WIDTH = 50;
+
     private List<T> datas = new ArrayList<>();
+
+    final private List<T> temps = new ArrayList<>();
 
     private TextPaint mTextPaint;
 
@@ -74,9 +78,9 @@ public class HistogramView<T extends HistogramBean> extends View {
 
     private int lastX;
 
-    private int avialableSpace;
+    private int availableSpace;
 
-    private int avaiableColumnSpace;
+    private int availableColumnSpace;
 
     private int xScaleStep;
 
@@ -180,7 +184,7 @@ public class HistogramView<T extends HistogramBean> extends View {
             left = lastX + space;
         }
         int top = (yCoordinateEndY + mYCoordinateHeight - relalHeight);
-        int right = (left + avaiableColumnSpace);
+        int right = (left + availableColumnSpace);
         int bottom = startY - 3;
 
         if (!TextUtils.isEmpty(color)) {
@@ -197,7 +201,7 @@ public class HistogramView<T extends HistogramBean> extends View {
         if (xScaleStep > 0) {
             xScalex = xScaleStep;
         } else {
-            xScalex = startX + space + avaiableColumnSpace / 2;
+            xScalex = startX + space + availableColumnSpace / 2;
         }
         int xScaley = startY;
 
@@ -207,7 +211,7 @@ public class HistogramView<T extends HistogramBean> extends View {
         mPaint.setColor(Color.BLACK);
         canvas.drawLine(xScalex, xScaley, xScaleEndx, xScaleEndy, mPaint);
 
-        xScaleStep = xScalex + 2 * avaiableColumnSpace / 2 + space;
+        xScaleStep = xScalex + 2 * availableColumnSpace / 2 + space;
 
         // 绘制 x 轴刻度值.
         Rect columnNameRect = new Rect();
@@ -221,7 +225,6 @@ public class HistogramView<T extends HistogramBean> extends View {
     private void drawYScaleValue(Canvas canvas, int yScaleValue, String yScaleValueStr) {
         // 绘制 y 轴刻度.
         // 根据列的数量进行刻度实现.
-        Log.i(TAG, "onDraw yScaleValue: " + yScaleValue);
         int yScaley = yCoordinateEndY + mYCoordinateHeight - yScaleValue;
         int yScalex = yCoordinateEndX;
 
@@ -232,7 +235,6 @@ public class HistogramView<T extends HistogramBean> extends View {
         canvas.drawLine(yScalex, yScaley, yScaleEndx, yScaleEndy, mPaint);
 
         // 绘制 y 轴刻度值.
-        Log.i(TAG, "onDraw yScaleValueStr: " + yScaleValueStr);
         Rect textRect = new Rect();
         mTextPaint.getTextBounds(yScaleValueStr, 0, yScaleValueStr.length(), textRect);
         canvas.drawText(yScaleValueStr, startX - textRect.width() - 20, yScaley + textRect.height() / 2, mTextPaint);
@@ -240,9 +242,32 @@ public class HistogramView<T extends HistogramBean> extends View {
 
     private void drawColumn(Canvas canvas) {
         // 得到直方图列可绘制区域
-        avialableSpace = mXCoordinateWidth - totoalSpaces * space;
-        // 列的可用宽度
-        avaiableColumnSpace = avialableSpace / columns;
+        availableSpace = mXCoordinateWidth - totoalSpaces * space;
+
+        // 列的可用宽度, 由于屏幕的宽度有限，如果要更好的适配，并且需要显示多列数据，考虑通过滑动切换的方式.
+        // TODO. 如果这里的有效宽度小于 50 像素，则后面的列不显示. 未处理滑动显示.
+        availableColumnSpace = availableSpace / columns;
+        if (availableColumnSpace < DEFAULT_WIDTH) {
+            temps.clear();
+            for (int i = 0; i < datas.size(); i++) {
+                temps.add(datas.get(i));
+                int availableSpaceTemp = 0;
+                if (i == 0) {
+                    availableSpaceTemp = DEFAULT_WIDTH;
+                } else {
+                    availableSpaceTemp = i * DEFAULT_WIDTH;
+                }
+
+                if (availableSpaceTemp > availableSpace) {
+                    break;
+                }
+            }
+
+            datas = temps;
+            columns = datas.size();
+            totoalSpaces = columns + 1;
+            availableColumnSpace = DEFAULT_WIDTH;
+        }
 
         // 计算最高数值与坐标轴实际高度的比值，
         if (datas.size() > 0) {
