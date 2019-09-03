@@ -7,6 +7,7 @@ import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
+import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.ComposeShader;
 import android.graphics.LightingColorFilter;
@@ -251,7 +252,16 @@ public class PaintBasicView extends View {
                 0,0,1,0,0,
                 0,0,0,0,255
         };
-        ColorMatrixColorFilter colorMatrixColorFilter = new ColorMatrixColorFilter(colorMatrix);
+
+        ColorMatrix colorMatrix1 = new ColorMatrix();
+//        colorMatrix1.setRotate(1, 180);
+
+        colorMatrix1.setSaturation(100.0f);
+
+        colorMatrix1.setScale(3.0f, 1.0f, 1.0f,1.0f);
+
+        ColorMatrixColorFilter colorMatrixColorFilter = new ColorMatrixColorFilter(colorMatrix1);
+
         mPaint.setColorFilter(colorMatrixColorFilter);
 
         mPath = new Path();
