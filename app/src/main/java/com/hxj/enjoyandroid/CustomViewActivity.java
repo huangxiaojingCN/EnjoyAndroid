@@ -11,6 +11,7 @@ import android.os.Bundle;
 
 import com.hxj.enjoyandroid.fragments.CanvasApiFragment;
 import com.hxj.enjoyandroid.fragments.CanvasPathFragment;
+import com.hxj.enjoyandroid.fragments.ColorMatrixFragment;
 import com.hxj.enjoyandroid.fragments.ComposeViewFragment;
 import com.hxj.enjoyandroid.fragments.EventViewFragment;
 import com.hxj.enjoyandroid.fragments.GesutureOneFragment;
@@ -38,6 +39,7 @@ public class CustomViewActivity extends AppCompatActivity {
             "Canvas",
             "path",
             "画笔",
+            "滤镜",
             "手势1",
             "自绘",
             "直方图",
@@ -95,6 +97,9 @@ public class CustomViewActivity extends AppCompatActivity {
 
         PaintBasicFragment paintBasicFragment = new PaintBasicFragment();
         fragments.add(paintBasicFragment);
+
+        ColorMatrixFragment colorMatrixFragment = new ColorMatrixFragment();
+        fragments.add(colorMatrixFragment);
 
         GesutureOneFragment gesutureOneFragment = new GesutureOneFragment();
         fragments.add(gesutureOneFragment);
