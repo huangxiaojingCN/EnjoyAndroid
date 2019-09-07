@@ -20,6 +20,7 @@ import com.hxj.enjoyandroid.fragments.PaintBasicFragment;
 import com.hxj.enjoyandroid.fragments.PathApiFragment;
 import com.hxj.enjoyandroid.fragments.ScreenCoordinateFragment;
 import com.hxj.enjoyandroid.fragments.SelfDrawViewFragment;
+import com.hxj.enjoyandroid.fragments.TextPaintFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +40,7 @@ public class CustomViewActivity extends AppCompatActivity {
             "Canvas",
             "path",
             "画笔",
+            "文本画笔",
             "滤镜",
             "手势1",
             "自绘",
@@ -97,6 +99,9 @@ public class CustomViewActivity extends AppCompatActivity {
 
         PaintBasicFragment paintBasicFragment = new PaintBasicFragment();
         fragments.add(paintBasicFragment);
+
+        TextPaintFragment textPaintFragment = new TextPaintFragment();
+        fragments.add(textPaintFragment);
 
         ColorMatrixFragment colorMatrixFragment = new ColorMatrixFragment();
         fragments.add(colorMatrixFragment);
