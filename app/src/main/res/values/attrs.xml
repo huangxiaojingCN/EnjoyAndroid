@@ -10,5 +10,12 @@
         <attr name="layout_marginRightPercent" format="float"/>
         <attr name="layout_marginBottomPercent" format="float"/>
     </declare-styleable>
+    
+    <declare-styleable name="NumberPasswordView">
+        <!-- 密码个数 -->
+        <attr name="password_numbers" format="integer"/>
+        <!-- 密码框的宽度 -->
+        <attr name="password_box_width" format="dimension"/>
+    </declare-styleable>
 
 </resources>

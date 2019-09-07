@@ -148,7 +148,7 @@ public class TextPaintView extends View {
 
 
         layout.draw(canvas);
-        
+
         /*mTextPaint.getTextBounds(text, 0, text.length(), mTextRect);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
