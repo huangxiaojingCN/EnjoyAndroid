@@ -141,7 +141,6 @@ public class TextPaintView extends View {
         super.onDraw(canvas);
 
 
-
        /* canvas.drawPath(mPath, mPaint);
 
         canvas.drawTextOnPath(text, mPath, 100, 0, mTextPaint);*/

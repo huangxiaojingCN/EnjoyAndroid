@@ -84,6 +84,8 @@ public class CanvasBasicView extends View {
         mPaint.setStrokeWidth(5);
         canvas.drawRect(10, 220, 210, 440, mPaint);
 
+        canvas.drawRoundRect(10, 220, 210, 440, 10, 10, mPaint);
+
         // 绘制椭圆.
         canvas.drawOval(10, 500, 210, 600, mPaint);
 
@@ -99,7 +101,7 @@ public class CanvasBasicView extends View {
                 10, 700,
                 50, 750,
                 100, 800,
-        }, mPaint);
+        }, 2, 2, mPaint);
 
         // 绘制多条线段
         canvas.drawLines(new float[] {
