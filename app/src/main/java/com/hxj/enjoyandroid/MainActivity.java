@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     private List<String> datas = new ArrayList<>();
 
-    private String[] items = new String[] {"屏幕适配", "自定义view系列"};
+    private String[] items = new String[] {"屏幕适配", "自定义view系列", "NDK系列"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 1:
                 startActivity(new Intent(MainActivity.this, CustomViewActivity.class));
+                break;
+            case 2:
+                startActivity(new Intent(MainActivity.this, NdkActivity.class));
                 break;
         }
     }
