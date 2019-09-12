@@ -1,4 +1,4 @@
-package com.hxj.enjoyandroid.ui.canvas;
+package com.hxj.enjoyandroid.views.canvas;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -8,7 +8,6 @@ import android.graphics.Rect;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 import com.hxj.enjoyandroid.model.HistogramBean;

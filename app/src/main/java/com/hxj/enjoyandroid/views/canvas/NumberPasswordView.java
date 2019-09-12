@@ -1,4 +1,4 @@
-package com.hxj.enjoyandroid.ui.canvas;
+package com.hxj.enjoyandroid.views.canvas;
 
 import android.content.Context;
 import android.content.res.TypedArray;

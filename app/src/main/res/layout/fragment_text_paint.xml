@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />-->
 
-    <com.hxj.enjoyandroid.ui.canvas.NumberPasswordView
+    <com.hxj.enjoyandroid.views.canvas.NumberPasswordView
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         app:password_box_width="300dp"

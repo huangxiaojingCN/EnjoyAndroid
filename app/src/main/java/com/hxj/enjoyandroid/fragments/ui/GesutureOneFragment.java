@@ -1,23 +1,24 @@
-package com.hxj.enjoyandroid.fragments;
+package com.hxj.enjoyandroid.fragments.ui;
 
 import android.view.View;
 
 import com.hxj.enjoyandroid.R;
+import com.hxj.enjoyandroid.fragments.BaseFragment;
 
 public class GesutureOneFragment extends BaseFragment {
 
     @Override
-    int loadLayoutId() {
+    public int loadLayoutId() {
         return R.layout.fragment_gesuture_onei;
     }
 
     @Override
-    void initData() {
+    public void initData() {
 
     }
 
     @Override
-    protected void initView(View view) {
+    public void initView(View view) {
 
     }
 }

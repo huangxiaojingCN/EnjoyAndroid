@@ -3,12 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.hxj.enjoyandroid.ui.canvas.HistogramView
+    <com.hxj.enjoyandroid.views.canvas.HistogramView
         android:id="@+id/histogramView"
         android:layout_width="match_parent"
         android:layout_height="300dp" />
 
-    <com.hxj.enjoyandroid.ui.canvas.PieView
+    <com.hxj.enjoyandroid.views.canvas.PieView
         android:id="@+id/pieView"
         android:layout_below="@id/histogramView"
         android:layout_width="300dp"

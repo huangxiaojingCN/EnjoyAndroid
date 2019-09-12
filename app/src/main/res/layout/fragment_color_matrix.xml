@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.hxj.enjoyandroid.ui.canvas.ColorMatrixView
+    <com.hxj.enjoyandroid.views.canvas.ColorMatrixView
         android:id="@+id/colorMatrix"
         android:layout_width="400dp"
         android:layout_height="300dp" />

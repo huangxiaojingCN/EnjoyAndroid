@@ -1,4 +1,4 @@
-package com.hxj.enjoyandroid.fragments;
+package com.hxj.enjoyandroid.fragments.ui;
 
 import android.text.TextUtils;
 import android.view.View;
@@ -6,7 +6,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.hxj.enjoyandroid.R;
-import com.hxj.enjoyandroid.ui.canvas.ColorMatrixView;
+import com.hxj.enjoyandroid.fragments.BaseFragment;
+import com.hxj.enjoyandroid.views.canvas.ColorMatrixView;
 
 public class ColorMatrixFragment extends BaseFragment {
 
@@ -46,17 +47,17 @@ public class ColorMatrixFragment extends BaseFragment {
     private ColorMatrixView mColorMatrixView;
 
     @Override
-    int loadLayoutId() {
+    public int loadLayoutId() {
         return R.layout.fragment_color_matrix;
     }
 
     @Override
-    void initData() {
+    public void initData() {
 
     }
 
     @Override
-    protected void initView(View view) {
+    public void initView(View view) {
         mBtnSetting = view.findViewById(R.id.btn_setting);
         mColorMatrixView = view.findViewById(R.id.colorMatrix);
 

@@ -1,14 +1,14 @@
-package com.hxj.enjoyandroid.fragments;
+package com.hxj.enjoyandroid.fragments.ui;
 
 import android.view.View;
 
 import com.hxj.enjoyandroid.R;
+import com.hxj.enjoyandroid.fragments.BaseFragment;
 import com.hxj.enjoyandroid.model.HistogramBean;
 import com.hxj.enjoyandroid.model.PieBean;
-import com.hxj.enjoyandroid.ui.canvas.HistogramView;
-import com.hxj.enjoyandroid.ui.canvas.PieView;
+import com.hxj.enjoyandroid.views.canvas.HistogramView;
+import com.hxj.enjoyandroid.views.canvas.PieView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,19 +19,19 @@ public class HistogramFragment extends BaseFragment {
     private PieView<PieBean> mPieView;
 
     @Override
-    protected void initView(View view) {
+    public void initView(View view) {
        mHistogramView = view.findViewById(R.id.histogramView);
 
        mPieView = view.findViewById(R.id.pieView);
     }
 
     @Override
-    int loadLayoutId() {
+    public int loadLayoutId() {
         return R.layout.fragment_histogram;
     }
 
     @Override
-    void initData() {
+    public void initData() {
         List<HistogramBean> datas = new ArrayList<>();
         HistogramBean bean = new HistogramBean();
         bean.height = 30;

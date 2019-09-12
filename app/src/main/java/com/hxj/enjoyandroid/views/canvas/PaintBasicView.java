@@ -1,25 +1,17 @@
-package com.hxj.enjoyandroid.ui.canvas;
+package com.hxj.enjoyandroid.views.canvas;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.ColorFilter;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
-import android.graphics.ComposeShader;
 import android.graphics.LightingColorFilter;
-import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
-import android.graphics.RadialGradient;
-import android.graphics.Shader;
-import android.graphics.SweepGradient;
-import android.support.transition.Visibility;
 import android.util.AttributeSet;
 import android.view.View;
 

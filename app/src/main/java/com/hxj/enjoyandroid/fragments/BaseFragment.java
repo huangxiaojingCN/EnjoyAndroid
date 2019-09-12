@@ -24,10 +24,10 @@ public abstract class BaseFragment extends Fragment {
         initData();
     }
 
-    protected abstract void initView(View view);
+    public abstract void initView(View view);
 
-    abstract int loadLayoutId();
+    public abstract int loadLayoutId();
 
-    abstract void initData();
+    public abstract void initData();
 
 }

@@ -1,4 +1,4 @@
-package com.hxj.enjoyandroid.ui;
+package com.hxj.enjoyandroid.views;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

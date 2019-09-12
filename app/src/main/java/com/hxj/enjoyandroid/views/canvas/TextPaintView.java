@@ -1,25 +1,17 @@
-package com.hxj.enjoyandroid.ui.canvas;
+package com.hxj.enjoyandroid.views.canvas;
 
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.CornerPathEffect;
-import android.graphics.DiscretePathEffect;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.graphics.PathDashPathEffect;
 import android.graphics.Rect;
-import android.graphics.Typeface;
-import android.os.Build;
-import android.os.LocaleList;
 import android.text.Layout;
 import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
-
-import java.util.Locale;
 
 public class TextPaintView extends View {
 
