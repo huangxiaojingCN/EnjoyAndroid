@@ -12,15 +12,24 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         externalNativeBuild {
-            ndkBuild{
-                abiFilters "armeabi-v7a"
+//            ndkBuild{
+//                abiFilters "armeabi-v7a"
+//            }
+
+            cmake {
+                cppFlags ""
             }
         }
     }
 
     externalNativeBuild{
-        ndkBuild{
-            path   "src/main/jniLibs/Android.mk"
+//        ndkBuild{
+//            path   "src/main/jniLibs/Android.mk"
+//        }
+
+        cmake {
+            path "src/main/cpp/CMakeLists.txt"
+            version "3.10.2"
         }
     }
 

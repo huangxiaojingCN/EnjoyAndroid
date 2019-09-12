@@ -19,7 +19,7 @@ import java.util.List;
 
 public class NdkActivity extends AppCompatActivity {
 
-    private String[] titles = new String[] {"Android.mk", "CMakeList.txt"};
+    private String[] titles = new String[] {"Android.mk", "CMakeLists.txt"};
 
     private List<Fragment> fragments = new ArrayList<>();
 
